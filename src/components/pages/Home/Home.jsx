@@ -1,5 +1,5 @@
 import { fetchTrending } from 'components/ServiceAPI/ServiceAPI';
-import { useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 import { FilmList } from '../FilmList/FilmList';
 import { Loader } from 'components/Loader/Loader';
 
@@ -7,7 +7,7 @@ export const Home = () => {
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  
+
   useEffect(() => {
     const fetchTrendingWeekly = () => {
       setLoading(true);
@@ -20,16 +20,17 @@ export const Home = () => {
     console.log(films)
    return fetchTrendingWeekly();
     
-  }, []);
+  }, [films]);
 
   return (
+    <><div>
+    <h1>Trending today</h1>
     <div>
-      <h1>Trending today</h1>
-      <div>
-      <FilmList films={films} />
-      </div>
-      
-      {loading && <Loader />}
+    <FilmList films={films} />
     </div>
+    
+    {loading && <Loader />}
+  </div></>
+    
   );
 };

@@ -1,25 +1,24 @@
+import { Outlet } from 'react-router-dom';
+import { Container, HeaderDom, Link } from './Layaout .styled';
+import { Suspense } from 'react';
+import { Loader } from 'components/Loader/Loader';
 
-import { Outlet } from "react-router-dom"
-import { Container, HeaderDom, Link } from "./Layaout .styled"
-import { Suspense } from "react"
-import { Loader } from "components/Loader/Loader"
-
-export const Layaout = ()=>{
-    return <Container>
+export const Layaout = () => {
+  return (
+    
+      <Container>
         <HeaderDom>
-        <nav>
-            <Link to="/">
-            Home
-            </Link>
+          <nav>
+            <Link to="/">Home</Link>
 
-            <Link to="/movies">
-            Movies
-            </Link>
-        </nav>
+            <Link to="/movies">Movies</Link>
+          </nav>
         </HeaderDom>
 
         <Suspense fallback={<Loader />}>
-        <Outlet/>
+          <Outlet />
         </Suspense>
-    </Container>
-} 
+      </Container>
+ 
+  );
+};

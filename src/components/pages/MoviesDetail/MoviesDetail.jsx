@@ -1,13 +1,14 @@
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 
 import { fetchFilmsDetails } from 'components/ServiceAPI/ServiceAPI';
 import { ErrorCard } from 'components/Error/Error';
+import { Loader } from 'components/Loader/Loader';
 
 export const MovieDetail = () => {
   const [movieDet, setMovieDet] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [err, setError] = useState('')
+  const [err, setError] = useState('');
 
   const { movieId } = useParams();
 
@@ -18,7 +19,7 @@ export const MovieDetail = () => {
       setLoading(true);
       fetchFilmsDetails(movieId)
         .then(moviesDet => setMovieDet(moviesDet))
-        .catch(error =>  setError(error.statusText))
+        .catch(error => setError(error.statusText))
         .finally(setLoading(false));
     };
     fetchMovieDet();
@@ -40,7 +41,10 @@ export const MovieDetail = () => {
 
   return (
     <>
-      <button><Link to={location.state?.from ?? '/'}>Go Back</Link></button>
+      <button>
+        <Link to={location.state?.from ?? '/'}>Go Back</Link>
+      </button>
+      {loading && <Loader/>}
       <div>
         <img
           width="300px"
@@ -76,12 +80,12 @@ export const MovieDetail = () => {
               <Link to="reviews">Reviews</Link>
             </li>
           </ul>
-
-          <Outlet />
+         
+            <Outlet />
+      
         </div>
       </div>
       {err && <ErrorCard>{err}</ErrorCard>}
     </>
-    
   );
 };

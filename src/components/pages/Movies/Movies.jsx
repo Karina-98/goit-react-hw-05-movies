@@ -4,12 +4,15 @@ import { fetchSearch } from 'components/ServiceAPI/ServiceAPI';
 import { useState } from 'react';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorCard } from 'components/Error/Error';
+import { useCustomContext } from 'components/Context/Context';
 
 export const Movies = () => {
-  const [search, setSearch] = useState([]);
+  const {search, setSearch} = useCustomContext();
   const [err, setErr] = useState('');
   const [found, setFound] = useState(false);
   const [loading, setLoading] = useState(false);
+
+
 
   const fetchSearchMovie = movie => {
     setLoading(true);
@@ -26,7 +29,7 @@ export const Movies = () => {
     <>
       <FormSearch fetchSearchMovie={fetchSearchMovie} />
       {loading && <Loader />}
-      <SearchFilms films={search} />
+      {search && <SearchFilms films={search} />}
       {found  && <p>Nothing found, please re-enter the title</p>}
       {err && <ErrorCard>{err}</ErrorCard>}
     </>

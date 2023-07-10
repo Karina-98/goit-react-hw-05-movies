@@ -1,3 +1,4 @@
+import { Loader } from 'components/Loader/Loader';
 import { fetchReviews } from 'components/ServiceAPI/ServiceAPI';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -20,7 +21,7 @@ export const Reviews = () => {
 
   return (
     <>
-      {/* {loading && <Loader />} */}
+      {loading && <Loader />}
       {reviews.length !== 0 && (
         <div>
           <ul>

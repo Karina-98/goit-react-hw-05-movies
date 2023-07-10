@@ -1,3 +1,4 @@
+import { Loader } from "components/Loader/Loader";
 import { fetchCastMovie } from "components/ServiceAPI/ServiceAPI";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
@@ -18,7 +19,7 @@ export const Cast = () => {
 
    return(
     <div>
-      {/* {loading && <Loader />} */}
+      {loading && <Loader />}
 
       <ul>
         {actors.map(({ id, profile_path, original_name, name, character }) => (
