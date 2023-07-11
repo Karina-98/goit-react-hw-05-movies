@@ -1,12 +1,13 @@
-import { SearchFilms } from 'components/SearchFilms/SearchFilms';
-import { FormSearch } from 'components/FormSearch/FormSearch';
+
 import { fetchSearch } from 'components/ServiceAPI/ServiceAPI';
 import { useState } from 'react';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorCard } from 'components/Error/Error';
 import { useCustomContext } from 'components/Context/Context';
+import FormSearch from 'components/FormSearch/FormSearch';
+import SearchFilms from 'components/SearchFilms/SearchFilms';
 
-export const Movies = () => {
+ const Movies = () => {
   const {search, setSearch} = useCustomContext();
   const [err, setErr] = useState('');
   const [found, setFound] = useState(false);
@@ -35,3 +36,6 @@ export const Movies = () => {
     </>
   );
 };
+
+
+export default Movies;

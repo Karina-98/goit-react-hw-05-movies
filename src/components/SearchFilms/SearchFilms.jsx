@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 
-export const SearchFilms = ({films}) => {
+ const SearchFilms = ({films}) => {
     
     const location = useLocation();
     return (
@@ -15,3 +15,5 @@ export const SearchFilms = ({films}) => {
         </ul>
       );
 }
+
+export default SearchFilms;

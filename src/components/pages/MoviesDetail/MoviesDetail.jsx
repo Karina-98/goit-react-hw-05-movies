@@ -1,11 +1,11 @@
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
-import {  useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
 import { fetchFilmsDetails } from 'components/ServiceAPI/ServiceAPI';
 import { ErrorCard } from 'components/Error/Error';
 import { Loader } from 'components/Loader/Loader';
 
-export const MovieDetail = () => {
+const MovieDetail = () => {
   const [movieDet, setMovieDet] = useState(null);
   const [loading, setLoading] = useState(false);
   const [err, setError] = useState('');
@@ -24,7 +24,7 @@ export const MovieDetail = () => {
     };
     fetchMovieDet();
   }, [movieId]);
-  console.log(movieDet);
+  
   if (!movieDet) {
     return;
   }
@@ -44,7 +44,7 @@ export const MovieDetail = () => {
       <button>
         <Link to={location.state?.from ?? '/'}>Go Back</Link>
       </button>
-      {loading && <Loader/>}
+      {loading && <Loader />}
       <div>
         <img
           width="300px"
@@ -80,12 +80,15 @@ export const MovieDetail = () => {
               <Link to="reviews">Reviews</Link>
             </li>
           </ul>
-         
+          <Suspense>
+            {' '}
             <Outlet />
-      
+          </Suspense>
         </div>
       </div>
       {err && <ErrorCard>{err}</ErrorCard>}
     </>
   );
 };
+
+export default MovieDetail;

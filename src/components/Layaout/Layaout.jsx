@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
-import { Container, HeaderDom, Link } from './Layaout .styled';
+import { Container, HeaderDom, Link } from './Layaout.styled';
 import { Suspense } from 'react';
 import { Loader } from 'components/Loader/Loader';
 
-export const Layaout = () => {
+ const Layaout = () => {
   return (
     
       <Container>
@@ -22,3 +22,5 @@ export const Layaout = () => {
  
   );
 };
+
+export default Layaout;

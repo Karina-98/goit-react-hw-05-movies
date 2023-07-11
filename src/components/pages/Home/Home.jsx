@@ -1,9 +1,10 @@
 import { fetchTrending } from 'components/ServiceAPI/ServiceAPI';
 import {  useEffect, useState } from 'react';
-import { FilmList } from '../FilmList/FilmList';
-import { Loader } from 'components/Loader/Loader';
 
-export const Home = () => {
+import { Loader } from 'components/Loader/Loader';
+import FilmList from 'components/FilmList/FilmList';
+
+const Home = () => {
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -17,10 +18,9 @@ export const Home = () => {
         .finally(setLoading(false));
     };
 
-    console.log(films)
    return fetchTrendingWeekly();
     
-  }, [films]);
+  }, []);
 
   return (
     <><div>
@@ -34,3 +34,5 @@ export const Home = () => {
     
   );
 };
+
+export default Home;

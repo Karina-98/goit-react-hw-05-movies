@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { Layaout } from './Layaout/Layaout ';
+
 import { lazy } from 'react';
+import Layaout from './Layaout/Layaout';
 
 // import { Home } from './pages/Home/Home';
 // import { Movies } from './pages/Movies/Movies';

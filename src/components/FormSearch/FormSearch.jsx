@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
+
 
 import { useState } from "react";
 
-export const FormSearch = ({fetchSearchMovie}) => {
+ const FormSearch = ({fetchSearchMovie}) => {
     const [query, setQuery] = useState('');
 
     const handleInputChange = event => {
@@ -31,7 +31,5 @@ export const FormSearch = ({fetchSearchMovie}) => {
 }
 
 
-FormSearch.propTypes = {
-    searchMovies: PropTypes.func.isRequired,
-  };
-  
+
+  export default FormSearch;
