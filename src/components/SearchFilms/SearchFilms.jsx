@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import {  useLocation } from 'react-router-dom';
 import { SearchLi, SearchLink, SearchUl } from './SeachFilms.styled';
 
 const SearchFilms = ({ films }) => {
