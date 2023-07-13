@@ -25,7 +25,7 @@ color: orange;
 
 export const SearchInput = styled.input`
 border: 1px solid ;
-    color: inherit;
+    color:  inherit;
     font-size: 14px;
     line-height: 1.14;
     font-weight: var(--font-weight-medium);

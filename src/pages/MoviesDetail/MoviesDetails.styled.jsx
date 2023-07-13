@@ -17,7 +17,7 @@ display: inline-block;
 export const GoBackLink = styled(Link)`
 link-style: none;
 padding: 12px;
-color:red;
+color:red ;
 
 `
 
