@@ -14,7 +14,7 @@ const SearchFilms = ({ films }) => {
             </Link>
           </li>
         ))}
-        ;
+        
       </SearchUl>
     </>
   );
