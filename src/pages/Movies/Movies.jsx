@@ -11,7 +11,7 @@ import { fetchSearch } from 'serviceAPI/ServiceAPI';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [movies, setMovies] = useState('');
+  const [movies, setMovies] = useState([]);
   const [err, setErr] = useState('');
   const [loading, setLoading] = useState(false);
 
