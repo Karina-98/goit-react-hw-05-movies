@@ -1,23 +1,25 @@
-import { Loader } from "components/Loader/Loader";
-import { fetchCastMovie } from "serviceAPI/ServiceAPI";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { Loader } from 'components/Loader/Loader';
+import { fetchCastMovie } from 'serviceAPI/ServiceAPI';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
- const Cast = () => {
-    const {movieId} = useParams();
-    const [loading, setLoading] =useState(false);
-    const [actors, setActors] = useState([]);
+const Cast = () => {
+  const { movieId } = useParams();
+  const [loading, setLoading] = useState(false);
+  const [actors, setActors] = useState([]);
 
-    useEffect(()=>
-   {
+  useEffect(() => {
     const fetchActors = () => {
-        setLoading(true);
-        fetchCastMovie(movieId).then((actors)=>setActors(actors)).catch((error)=>console.log(error)).finally(() => setLoading(false));
-    }
-    fetchActors()
-   },[movieId] )
+      setLoading(true);
+      fetchCastMovie(movieId)
+        .then(actors => setActors(actors))
+        .catch(error => console.log(error))
+        .finally(() => setLoading(false));
+    };
+    fetchActors();
+  }, [movieId]);
 
-   return(
+  return (
     <div>
       {loading && <Loader />}
 
@@ -37,9 +39,12 @@ import { useParams } from "react-router-dom"
             <h2>Character: {character}</h2>
           </li>
         ))}
+        {actors.length === 0 && (
+          <div>We don't have any cast for this movie</div>
+        )}
       </ul>
     </div>
-   )
-}
+  );
+};
 
 export default Cast;
