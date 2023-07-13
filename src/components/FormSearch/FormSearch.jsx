@@ -1,32 +1,37 @@
 
+import { toast } from "react-hot-toast";
+import { ButtonSearch, SearchForm, SearchInput } from "./FormSearch.styled";
 
-import { useState } from "react";
 
  const FormSearch = ({fetchSearchMovie}) => {
-    const [query, setQuery] = useState('');
+
 
     const handleInputChange = event => {
-      setQuery(event.target.value);
+    event.preventDefault();
+    const query = event.target.elements.query.value;
+    console.log(query)
+    if (!query) {
+      toast.error('Please enter something');
+      return;
+    }
       
+      
+     fetchSearchMovie(query);
+     event.target.reset();
+
     };
   
-    const handleSubmit = event => {
-      event.preventDefault();
-      fetchSearchMovie(query.toLowerCase());
-    };
    
   
-    return (
-      <form onSubmit={handleSubmit}>
-        <input
+    return (<>
+      <SearchForm onSubmit={handleInputChange}>
+        <SearchInput
           type="text"
           name="query"
-          autoFocus
-          value={query}
-          onChange={handleInputChange}
         />
-        <button type="submit">Search</button>
-      </form>
+        <ButtonSearch type="submit" >Search</ButtonSearch>
+      </SearchForm>
+      {/* {notWrite && <p>Please something wrong</p>}</> */} </>
     );
 }
 

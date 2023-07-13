@@ -1,5 +1,5 @@
 import { Loader } from 'components/Loader/Loader';
-import { fetchReviews } from 'components/ServiceAPI/ServiceAPI';
+import { fetchReviews } from 'serviceAPI/ServiceAPI';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 

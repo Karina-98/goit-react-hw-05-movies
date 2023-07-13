@@ -1,5 +1,5 @@
 import { Loader } from "components/Loader/Loader";
-import { fetchCastMovie } from "components/ServiceAPI/ServiceAPI";
+import { fetchCastMovie } from "serviceAPI/ServiceAPI";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 

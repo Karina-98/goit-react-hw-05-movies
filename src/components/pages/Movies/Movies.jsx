@@ -1,5 +1,5 @@
 
-import { fetchSearch } from 'components/ServiceAPI/ServiceAPI';
+import { fetchSearch } from 'serviceAPI/ServiceAPI';
 import { useState } from 'react';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorCard } from 'components/Error/Error';

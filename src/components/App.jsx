@@ -11,11 +11,11 @@ import Layaout from './Layaout/Layaout';
 // import { Reviews } from './Reviews/Reviews';
 
 
-const Home = lazy(() => import('./pages/Home/Home'));
+const Home = lazy(() => import('../pages/Home/Home'));
 const Cast = lazy(() => import('./Cast/Cast'));
 const Reviews = lazy(() => import('./Reviews/Reviews'));
-const MovieDetail = lazy(() => import('./pages/MoviesDetail/MoviesDetail'));
-const Movies = lazy(() => import('./pages/Movies/Movies'));
+const MovieDetail = lazy(() => import('../pages/MoviesDetail/MoviesDetail'));
+const Movies = lazy(() => import('../pages/Movies/Movies'));
 
 
 export const App = () => {

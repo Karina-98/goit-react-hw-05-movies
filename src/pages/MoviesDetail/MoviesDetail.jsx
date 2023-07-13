@@ -4,6 +4,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { fetchFilmsDetails } from 'serviceAPI/ServiceAPI';
 import { ErrorCard } from 'components/Error/Error';
 import { Loader } from 'components/Loader/Loader';
+import { DetailsDiv, DetailsInfo, GoBackButton, GoBackLink } from './MoviesDetails.styled';
 
 const MovieDetail = () => {
   const [movieDet, setMovieDet] = useState(null);
@@ -39,11 +40,12 @@ const MovieDetail = () => {
     original_title,
   } = movieDet;
 
-  return (
-    <>
-      <button>
-        <Link to={location.state?.from ?? '/'}>Go Back</Link>
-      </button>
+ 
+  return (<>
+    <GoBackButton>
+        <GoBackLink to={location.state?.from || '/'}>Go Back</GoBackLink>
+      </GoBackButton>
+    <DetailsDiv>
       {loading && <Loader />}
       <div>
         <img
@@ -55,7 +57,7 @@ const MovieDetail = () => {
           }
           alt={original_title}
         />
-        <div>
+        <DetailsInfo>
           <h1>
             {title} ({release_date.slice(0, 4)})
           </h1>
@@ -68,7 +70,7 @@ const MovieDetail = () => {
               <li key={genre.id}>{genre.name}</li>
             ))}
           </ul>
-        </div>
+        </DetailsInfo>
 
         <div>
           <h3>Additional information</h3>
@@ -87,7 +89,7 @@ const MovieDetail = () => {
         </div>
       </div>
       {err && <ErrorCard>{err}</ErrorCard>}
-    </>
+    </DetailsDiv></>
   );
 };
 
