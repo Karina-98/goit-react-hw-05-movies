@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { SearchUl } from './SeachFilms.styled';
+import { SearchLi, SearchLink, SearchUl } from './SeachFilms.styled';
 
 const SearchFilms = ({ films }) => {
   console.log(films);
@@ -8,11 +8,11 @@ const SearchFilms = ({ films }) => {
     <>
       <SearchUl>
         {films.map(film => (
-          <li key={film.id}>
-            <Link to={`/movies/${film.id}`} state={{ from: location }}>
+          <SearchLi key={film.id}>
+            <SearchLink to={`/movies/${film.id}`} state={{ from: location }}>
               {film.title}
-            </Link>
-          </li>
+            </SearchLink>
+          </SearchLi>
         ))}
         
       </SearchUl>

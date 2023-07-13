@@ -7,8 +7,8 @@ align-items: center;
 `
 
 export const ButtonSearch = styled.button`
-color: orange;
-    border: none;
+color: dark;
+    border-color:black;
     border-radius: 74px;
     outline: none;
     padding: 10px 20px;
@@ -20,6 +20,7 @@ color: orange;
     transition: background-color .3s;
     display: inline-block;
     position: relative;
+
 }
 `
 
